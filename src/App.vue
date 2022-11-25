@@ -33,7 +33,8 @@ export default {
       axios
         .get(`https://rickandmortyapi.com/api/character/${i}`)
         .then((res) => {
-          let rick = res.data;
+          
+          let rick = res.data;  
 
           this.item.push({
             id:rick.id,
@@ -42,12 +43,6 @@ export default {
             species:rick.species,
             location:rick.location.name
           })
-          // this.item.id = rick.id;
-          this.name = rick.name;
-          // this.item.status = rick.status;
-          // this.item.species = rick.species;
-          // this.item.location = rick.location.name;
-
           console.log(this.item.status);
         });
     });
