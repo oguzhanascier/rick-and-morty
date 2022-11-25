@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <button>MORTİ</button>
     <div class="card">
       <ul v-for="i in item" :key="i.id">
         <li><img :src="i.image" alt="" /></li>
         <div class="identity">
-          <li><strong>ID: </strong> {{ i.id }}</li>
-          <li><strong>GENDER:</strong> {{ i.gender }}</li>
-          <li><strong>NAME:</strong> {{ i.name }}</li>
-          <li><strong> STATUS: </strong> {{ i.status }}</li>
-          <li><strong>SPECIES: </strong> {{ i.species }}</li>
-          <li><strong>LOCATION: </strong> {{ i.location }}</li>
+          <li><strong style="color:#496e9a">ID: </strong> {{ i.id }}</li>
+          <li><strong style="color:#496e9f">GENDER:</strong> {{ i.gender }}</li>
+          <li><strong style="color:#496e9f">NAME:</strong> {{ i.name }}</li>
+          <li><strong style="color:#496e9f"> STATUS: </strong> {{ i.status }}</li>
+          <li><strong style="color:#496e9f">SPECIES: </strong> {{ i.species }}</li>
+          <li><strong style="color:#496e9f">LOCATION: </strong> {{ i.location }}</li>
         </div>
       </ul>
     </div>
@@ -68,6 +67,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   overflow-x: hidden;
+  background: #131419;
+
+
 }
 
 .card {
@@ -87,7 +89,8 @@ ul {
   height: 300px;
   margin: 20px;
   list-style-type: none;
-  background: #3cab;
+  background: #131419;
+ 
 }
 
 ul li img {
@@ -103,13 +106,28 @@ ul li img {
   position: absolute;
   left: 200px;
   width: 55%;
+  height: 100%;
   flex-direction: column;
+  color: #496e7f;
+  background: #131419;
+  box-shadow: -1px -1px 6px rgba(255, 255, 255, 0.1), 
+  2px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .identity li {
   padding: 10px;
+  position: relative;
   margin-top: 8px;
-  box-shadow: -1px -1px 3px rgba(175, 237, 223, 0.733),
-    1px 1px 3px rgba(79, 147, 132, 0.733);
+  
+}
+
+.identity li:not(:last-child)::before{
+  position: absolute;
+  bottom: 0;
+  content: '';
+  width: 90%;
+  height: 1px;
+  background: #496e7f;
+
 }
 </style>
