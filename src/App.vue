@@ -3,7 +3,7 @@
     <img class="title" src="./assets/toppng.com-rick-and-morty-logo-art-of-rick-and-morty-by-justin-roiland-801x295.png" alt="">
     <div class="card">
       <ul v-for="i in item" :key="i.id">
-        <li><img :src="i.image" alt="" /></li>
+        <li><img :src="i.image" :alt="i.name+' has no a photo on the server'" style="color:white" /></li>
         <div class="identity">
           <li><strong style="color:#496e9a">ID: </strong> {{ i.id }}</li>
           <li><strong style="color:#496e9f">GENDER:</strong> {{ i.gender }}</li>
@@ -55,7 +55,7 @@ export default {
   },
 
   async created() {
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i < 820; i++) {
       this.num.push(i);
     }
     await this.rickAndMorty();
