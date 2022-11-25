@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <img class="title" src="./assets/toppng.com-rick-and-morty-logo-art-of-rick-and-morty-by-justin-roiland-801x295.png" alt="">
     <div class="card">
       <ul v-for="i in item" :key="i.id">
         <li><img :src="i.image" alt="" /></li>
@@ -65,11 +66,20 @@ export default {
 <style lang="scss">
 body {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   overflow-x: hidden;
   background: #131419;
 
 
+}
+
+.title{
+  position: fixed;
+
+  top: 20%;
+  left:13%;
+  width: 70%;
 }
 
 .card {
