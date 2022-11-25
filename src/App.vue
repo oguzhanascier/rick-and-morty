@@ -108,6 +108,7 @@ ul li img {
   left: 0;
   width: 200px;
   height: 300px;
+  animation: anime 5s infinite;
 }
 
 .identity {
@@ -139,5 +140,34 @@ ul li img {
   height: 1px;
   background: #496e7f;
 
+}
+
+@keyframes anime {
+  0%{
+    // filter: blur(0.2rem);
+    filter:hue-rotate(0deg);
+
+  }
+  25%{
+    // filter: blur(0.2rem);
+    filter:hue-rotate(120deg);
+
+  }
+
+  50%{
+    // filter: blur(0.2rem);
+    filter:hue-rotate(200deg);
+
+  }
+  75%{
+    filter:hue-rotate(280deg);
+    
+  }
+  100%{
+    filter:hue-rotate(360deg);
+    
+  }
+
+  
 }
 </style>
