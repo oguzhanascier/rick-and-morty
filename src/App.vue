@@ -4,7 +4,13 @@
     <div>
       <ul v-for="i in item" :key="i.id">
         <li>
-          {{i.name}}
+          {{ i.name }}
+          {{ i.id }}
+          {{ i.status }}
+          {{ i.species }}
+          {{ i.location }}
+          {{ i.gender }}
+          <img :src="i.image" alt="" />
         </li>
       </ul>
     </div>
@@ -21,31 +27,38 @@ export default {
   data() {
     return {
       num: [],
-      item:[]
+      item: [],
     };
   },
 
-  created() {
-    for (let i = 1; i < 250; i++) {
+  methods: {
+    async rickAndMorty() {
+      await this.num.forEach((i) => {
+        axios
+          .get(`https://rickandmortyapi.com/api/character/${i}`)
+          .then((res) => {
+            let rick = res.data;
+
+            this.item.push({
+              id: rick.id,
+              name: rick.name,
+              status: rick.status,
+              species: rick.species,
+              location: rick.location.name,
+              gender: rick.gender,
+              image: rick.image,
+            });
+            console.log(rick);
+          });
+      });
+    },
+  },
+
+  async created() {
+    for (let i = 1; i < 850; i++) {
       this.num.push(i);
     }
-    this.num.forEach((i) => {
-      axios
-        .get(`https://rickandmortyapi.com/api/character/${i}`)
-        .then((res) => {
-          
-          let rick = res.data;  
-
-          this.item.push({
-            id:rick.id,
-            name:rick.name,
-            status:rick.status,
-            species:rick.species,
-            location:rick.location.name
-          })
-          console.log(this.item.status);
-        });
-    });
+   await this.rickAndMorty();
   },
 };
 </script>
